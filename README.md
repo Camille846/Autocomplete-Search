@@ -13,7 +13,7 @@ This is a mini project created to improve my Javascript skills. It's a simple de
 ## Overview
 
 ### The project
-- There is a search bar with an autocomplete search. When you type any country choosen by the user, it will display query suggestions and predict the rest of a word the user is typing and redirect to a certain page that shows the chosen country informations.
+- There is a search bar with an autocomplete search. When you type any country chosen by the user, it will display query suggestions and predict the rest of a word the user is typing and redirect to a certain page that shows the chosen country informations.
 
 ## My process 
 
