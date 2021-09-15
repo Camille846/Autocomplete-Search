@@ -1,7 +1,7 @@
-const searchContainer = document.querySelector('.search__container')
+const searchInput = document.querySelector('.search__input')
 const input = document.getElementById("search")
 const icon = document.getElementById("icon")
-const autocompBox =  document.querySelector('.autocomplete__box')
+const suggestionBox =  document.querySelector('.autocomplete__box')
 
 input.onkeyup = (e) => {
     // console.log(e.target.value)
@@ -16,6 +16,23 @@ input.onkeyup = (e) => {
         emptyArray = emptyArray.map((data)=>{ //The map() method calls a provided callbackFn function once for each element in an array, in order, and constructs a new array from the results
             return data = '<li>'+ data +'</li>'
         })
-        console.log(emptyArray)
+        // console.log(emptyArray)
+        searchInput.classList.add('active')
+    } else{
+
     }
+    showSuggestions(emptyArray)
+}
+
+function showSuggestions(list){
+    let listData
+
+    if(!list.length){
+        userValue = input.value
+        listData = '<li>'+ userValue +'</li>'
+    } else{
+        listData = list.join('')
+    }
+
+    suggestionBox.innerHTML = listData
 }
