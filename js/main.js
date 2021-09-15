@@ -18,10 +18,22 @@ input.onkeyup = (e) => {
         })
         // console.log(emptyArray)
         searchInput.classList.add('active')
+        showSuggestions(emptyArray)
+        let allList = suggestionBox.querySelectorAll('li')
+
+        for (let i= 0; i < allList.length; i++) {
+           allList[i].setAttribute("onclick", "select(this)")
+        }
     } else{
         searchInput.classList.remove('active')
     }
-    showSuggestions(emptyArray)
+}
+
+function select(element){
+    let selectUserData = element.textContent;
+    // console.log(selectUserData)
+    input.value = selectUserData
+    searchInput.classList.remove('active')
 }
 
 function showSuggestions(list){
@@ -35,4 +47,7 @@ function showSuggestions(list){
     }
 
     suggestionBox.innerHTML = listData
+ 
 }
+
+
