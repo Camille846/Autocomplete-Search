@@ -19,7 +19,7 @@ input.onkeyup = (e) => {
         // console.log(emptyArray)
         searchInput.classList.add('active')
     } else{
-
+        searchInput.classList.remove('active')
     }
     showSuggestions(emptyArray)
 }
