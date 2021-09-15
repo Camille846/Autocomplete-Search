@@ -1,2 +1,2 @@
-﻿# Autocomplete Search Suggestions 
+﻿# 🔎 Autocomplete Search Suggestions 🔍
 
