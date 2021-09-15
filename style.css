@@ -73,23 +73,33 @@ body{
 }
 
 .autocomplete__box{
-    /* padding: 10px 8px; */
     opacity: 0;
     pointer-events: none;
     max-height: 250px;
     overflow-y: auto;
 }
 
+.search__input.active .autocomplete__box{
+    opacity: 1;
+    pointer-events: auto;
+    padding: 10px 8px;
+}
+
 .autocomplete__box li{
     list-style: none;
-    row-gap: 8px;
+    padding: 10px;
     width: 100%;
     cursor: default;
     border-radius: 5px;
     display: none;
 }
 
+.search__input.active .autocomplete__box li{
+    display: block;
+}
+
 .autocomplete__box li:hover{
     background-color: var(--autocomp-hover);
 }
+
 
