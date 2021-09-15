@@ -3,14 +3,21 @@ const countries = ["Afghanistan","Albania","Algeria","Andorra","Angola","Anguill
 const searchContainer = document.querySelector('.search__container')
 const input = document.getElementById("search")
 const icon = document.getElementById("icon")
-let linkTag = searchContainer.querySelector('a')
 
 function autocomplete(inp, arr) {
-    let currentFocus
+    var currentFocus
 
-    inp.addEventListener("input", function(e){
+    input.addEventListener("input", function(e) {
         let a, b, i, val = this.value;
 
+        // closeAllLists();
+
+        if (!val) { 
+            return false;
+        }
+
+        currentFocus = -1;
+        
         // Create div element 
         a = document.createElement("div")
         a.setAttribute("id", this.id + "autocomplete-box")
@@ -29,11 +36,61 @@ function autocomplete(inp, arr) {
 
                 // execute a function when the user clicks on the DIV element
                 b.addEventListener("click", function(e){
-
+                    //insert the value for the autocomplete text field
+                    inp.value = this.getElementsByTagName("input")[0].value;
                 })
+                a.appendChild(b)
+                closeAllLists();
             }
         }
     })
+
+    input.addEventListener("keydown", function(e){
+        var x = document.getElementById(this.id + "autocomplete-box");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.key == 40) {
+            // If the arrow DOWN key is pressed, increase the currentFocus variable
+            currentFocus++;
+            addActive(x);
+            
+        } else if (e.key == 38) { //up
+            currentFocus--;
+            //and and make the current item more visible:
+            addActive(x);
+        } else if (e.key == 13) {
+            //If the ENTER key is pressed, prevent the form from being submitted
+            e.preventDefault();
+        } if (currentFocus > -1) {
+            if (x) x[currentFocus].click();
+        }
+    })
+
+    function addActive(x) {
+        if (!x) return false;
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        x[currentFocus].classList.add("autocomplete-active");
+    }
+
+    function removeActive(x) {
+        for (var i = 0; i < x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+        }
+    }
+
+    function closeAllLists(elmnt) {
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+            if (elmnt != x[i] && elmnt != inp) {
+                x[i].parentNode.removeChild(x[i]);
+            }
+        }
+    }
+
+    document.addEventListener("click", function (e) {
+        closeAllLists(e.target);
+    });
 }
 
 autocomplete('document.getElementById("search")', countries)
