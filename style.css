@@ -19,13 +19,14 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2em;
+    font-size: 1.2em;
 }
 
 .search__container{
     display: flex;
     column-gap: 5px;
     width: 450px;
+    position: relative;
 }
 
 .search__input{
@@ -59,12 +60,33 @@ body{
 
 .autocomplete__items{
     background-color: #fff;
-    border: 1px solid var(--icon-color);
-    border-bottom: none;
-    border-top: none;
+    color: var(--text-color);
     z-index: 99;
     width: 450px;
     max-height: 280px;
     overflow-y: auto;
     pointer-events: auto;
+    cursor: pointer;
+    position: absolute;
+    top:100%;
+}
+
+.autocomplete__items div{
+    background-color: var(--white);
+    color: var(--text-color);
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+}
+
+.autocomplete__items div:hover {
+    background-color: #f4e3d1; 
+}
+  
+.autocomplete-active {
+    width: 450px;
+    max-height: 480px;
+    background-color: var(--icon-color); 
+    color: var(--text-color);
 }
