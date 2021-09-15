@@ -50,4 +50,8 @@ function showSuggestions(list){
  
 }
 
+function redirectSearch(){
+    userValue = input.value
+    window.open("https://en.wikipedia.org/wiki/" + userValue)
+}
 
