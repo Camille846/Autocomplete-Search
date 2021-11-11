@@ -31,5 +31,6 @@ This is a mini project created to improve my Javascript skills. It's a simple de
 
 
 ### Links
+- Fonts: [Google Fonts](https://fonts.google.com)
 - icons: [Font Awesome](https://fontawesome.com)
 - Access Project: [Autocomplete Search](https://camille846.github.io/Autocomplete-Search/)
